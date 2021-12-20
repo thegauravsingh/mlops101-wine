@@ -1,0 +1,4 @@
+artifact_location: file:///workspace/mlops101-wine/mlruns/1
+experiment_id: '1'
+lifecycle_stage: active
+name: ElasticNet regression

@@ -11,6 +11,8 @@ jobs:
           repo_token: ${{ secrets.GIT_TOKEN }}
         run: |
           # Your ML workflow goes here
+          dvc get https://github.com/mlflow/mlflow-example.git wine-quality.csv -o wine_quality.csv
+
           pip install -r requirements.txt
           python train.py
           
