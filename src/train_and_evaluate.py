@@ -86,22 +86,22 @@ def train_and_evaluate(config_path):
             mlflow.sklearn.log_model(lr,"model")
 
 
+
+        print("Elasticnet model (alpha=%f, l1_ratio=%f):" % (alpha, l1_ratio))
+        print("  RMSE: %s" % rmse)
+        print("  MAE: %s" % mae)
+        print("  R2: %s" % r2)
+        scores_file = config["reports"]["scores"]
+        params_file = config["reports"]["params"]
+        
+        with open(scores_file, "w") as f:
+            scores = {
+                "rmse": rmse,
+                "mae": mae,
+                "r2": r2
+            }
+            json.dump(scores, f, indent=4)
         #####################################################
-        #print("Elasticnet model (alpha=%f, l1_ratio=%f):" % (alpha, l1_ratio))
-        #print("  RMSE: %s" % rmse)
-        #print("  MAE: %s" % mae)
-        #print("  R2: %s" % r2)
-        #scores_file = config["reports"]["scores"]
-        #params_file = config["reports"]["params"]
-        #
-        #with open(scores_file, "w") as f:
-        #    scores = {
-        #        "rmse": rmse,
-        #        "mae": mae,
-        #        "r2": r2
-        #    }
-        #    json.dump(scores, f, indent=4)
-        #
         #with open(params_file, "w") as f:
         #    params = {
         #        "alpha": alpha,
